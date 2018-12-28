@@ -24,7 +24,7 @@ class StoreBlogPost extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts',
+            'title' => 'required',
             'body' => 'required',            
         ];
     }
@@ -37,8 +37,7 @@ class StoreBlogPost extends FormRequest
     {
         return [
             'title.required' => 'Необходимо заполнить поле Title',
-            'body.required'  => 'Необходимо заполнить поле Body',
-            'title.unique' => 'Статья с таким заголовком существует',
+            'body.required'  => 'Необходимо заполнить поле Body',            
         ];
     }    
 }

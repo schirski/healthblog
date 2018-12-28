@@ -53,16 +53,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        try {
-            throw new PostNotFoundException;
-           /* $post = Post::findOrFail($id);
-            return view('posts.post')->with('post', $post);*/
-        }
-        catch(PostNotFoundException $e) {
-            return 'error';
-        }
-
-        
+        $post = Post::findOrFail($id);
+        return view('posts.post')->with('post', $post);
     }
 
     /**
@@ -73,7 +65,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit')->with('post', $post);   
     }
 
     /**
@@ -83,9 +76,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBlogPost $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+        return view('posts.post')->with('post', $post);
     }
 
     /**
