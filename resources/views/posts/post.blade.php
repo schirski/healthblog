@@ -6,5 +6,6 @@
         {!!$post->body!!}
     </p>
     <hr>
-    <a href="/posts/{{$post->id}}/edit" class ="btn btn-outline-primary">Редактировать</a>
+    <a href="{{action('PostsController@edit',$post->id)}}" class ="btn btn-outline-primary">Редактировать</a>
+    
 @endsection
