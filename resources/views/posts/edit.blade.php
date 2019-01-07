@@ -2,7 +2,7 @@
 
 @section('content')
     
-        <h1>Редактирование записи</h1>
+    <h1>Редактирование записи</h1>
     
     <form action="{{action('PostsController@update',$post->id)}}" method="Post">
         @csrf
@@ -18,4 +18,5 @@
         
         <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
+    
 @endsection

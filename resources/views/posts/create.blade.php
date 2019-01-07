@@ -2,7 +2,7 @@
 
 @section('content')
     
-        <h1>Новая запись</h1>
+    <h1>Новая запись</h1>
     
     <form action="{{action('PostsController@store')}}" method="Post">
         @csrf
@@ -17,6 +17,7 @@
         
         <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
+
 @endsection
 
 @section('nav_createpost_active', 'active')

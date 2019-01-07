@@ -1,6 +1,10 @@
 @extends('layouts.app')
-@section('content')       
-    <h1>{{$title}}</h1> 
-    <p>{{$description}}</p>
+@section('content')     
+
+        <welcome-component :title="'{{$title}}'"> </welcome-component> 
+        
+        <p>{{$description}}</p>
+
+        @{{ product }}
 @endsection  
 @section('nav_main_active', 'active')
