@@ -7,6 +7,7 @@ use App\Post;
 use App\Http\Requests\StoreBlogPost;
 use App\Exceptions\PostNotFoundException;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -16,7 +17,7 @@ class PostsController extends Controller
      */    
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except(['index', 'show']);
     }
     /**
      * Display a listing of the resource.
@@ -25,14 +26,15 @@ class PostsController extends Controller
      */
     public function index()
     {
-       /* if (Auth::check()) {
-            $user = Auth::user();
+        if (Auth::check()) {
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
             return view('posts.index')->with('posts', $user->posts);
         }        
-        else {*/
+        else {
             $posts = Post::all();
             return view('posts.index')->with('posts', $posts);
-        /*}*/   
+        }   
         
     }
 

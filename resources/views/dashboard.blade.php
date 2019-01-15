@@ -8,13 +8,9 @@
                 <div class="card-header">Dashboard</div>
                 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <a href="/posts/create" class="btn btn-primary">Create Post</a>
 
-                    You are logged in!
+                    <h3>Your Posts</h3>
                 </div>
             </div>
         </div>
